@@ -68,7 +68,7 @@ async function main() {
     })
   )
 
-  apolloServer.applyMiddleware({ app })
+  apolloServer.applyMiddleware({ app, cors: false })
 
   const port = 4000
   app.listen(port, () => {
