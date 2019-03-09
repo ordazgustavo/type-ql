@@ -6,10 +6,10 @@ import { createConnection } from 'typeorm'
 import session from 'express-session'
 import connectRedis from 'connect-redis'
 import cors from 'cors'
-import queryComplexity, {
-  fieldConfigEstimator,
-  simpleEstimator
-} from 'graphql-query-complexity'
+// import queryComplexity, {
+//   fieldConfigEstimator,
+//   simpleEstimator
+// } from 'graphql-query-complexity'
 
 import { redis } from './redis'
 import { createSchema } from './utils/createSchema'
@@ -24,19 +24,19 @@ async function main() {
     formatError: formatArgumentValidationError,
     context: ({ req, res }: any) => ({ req, res }),
     validationRules: [
-      queryComplexity({
-        maximumComplexity: 8,
-        variables: {},
-        onComplete: (complexity: number) => {
-          console.log('Query Complexity:', complexity)
-        },
-        estimators: [
-          fieldConfigEstimator(),
-          simpleEstimator({
-            defaultComplexity: 1
-          })
-        ]
-      })
+      // queryComplexity({
+      //   maximumComplexity: 8,
+      //   variables: {},
+      //   onComplete: (complexity: number) => {
+      //     console.log('Query Complexity:', complexity)
+      //   },
+      //   estimators: [
+      //     fieldConfigEstimator(),
+      //     simpleEstimator({
+      //       defaultComplexity: 1
+      //     })
+      //   ]
+      // })
     ] as any
   })
 
